@@ -8,7 +8,7 @@ from code.Constante import WIN_WIDTH, COLOR_YELLOW, COLOR_RED, MENU_OPTION, COLO
 class Menu:
     def __init__(self, window):
         self.window = window
-        self.surf = pygame.image.load('./asset/fundo.png')  # Carrega a imagem e Defini a imagem de fundo
+        self.surf = pygame.image.load('./asset/fundo.png').convert_alpha()  # Carrega a imagem e Defini a imagem de fundo
         self.retangulo = self.surf.get_rect(left=0, top=0)  # Cria o retangulo iniciando no cando superior esquerdo
 
     def run(self, ):
@@ -37,7 +37,6 @@ class Menu:
             # Evento de fechar a janela
             for event in pygame.event.get():  # Pega os eventos e checa os eventos com a variavel event
                 if event.type == pygame.QUIT:
-                    print('Quitting')
                     pygame.quit()  # Close Window
                     quit()  # Encerra o pygame
 
