@@ -1,24 +1,30 @@
+import random
 import sys
+from random import choice
+
 import pygame.display
 import pygame
 
-from xml.dom.minidom import Entity
 from pygame.font import Font
 from pygame import Surface, Rect
 
-from code.Constante import COLOR_WHITE, WIN_HEIGHT
+from code.Constante import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME
 from code.Entity import Entity
-from code.EntityFactory import EntityFactore
+from code.EntityFactory import EntityFactory
 
 
 class Level:
     def __init__(self, window, name, game_mode):
-        self.timeout = 20000
+        self.timeout = 20000 # Tempo informado sempre em milisegundos
         self.window = window
         self.name = name
         self.game_mode  = game_mode
         self.entity_list: list[Entity] = []
-        self.entity_list.extend(EntityFactore.get_entity('Level1Bg'))
+        self.entity_list.extend(EntityFactory.get_entity('Level1Bg')) # Inicializa o background
+        self.entity_list.append(EntityFactory.get_entity('Player1')) # Inicializa o player1
+        if game_mode in [MENU_OPTION[1], MENU_OPTION[2]]:
+            self.entity_list.append(EntityFactory.get_entity('Player2'))  # Inicializa o player1
+        pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME) # Define o tempo de surgimento dos inimigos
 
     def run(self, ):
         pygame.mixer_music.load('./asset/Level1.mp3')
@@ -33,6 +39,9 @@ class Level:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit() #
+                if event.type == EVENT_ENEMY:
+                    choice = random.choice(('Enemy1','Enemy2'))
+                    self.entity_list.append(EntityFactory.get_entity(choice))
 
             self.level_text(14, f'{self.name} - TIMEOUT: {self.timeout / 1000 :.1f}s', COLOR_WHITE, (10, 5)) # MOstra o tempo de duração do level
             self.level_text(14, f'FPS:{clock.get_fps() : .0f}', COLOR_WHITE, (10,WIN_HEIGHT - 35)) # Mostra o FPS na tela
