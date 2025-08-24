@@ -23,8 +23,16 @@ class EntityFactory:
             case 'Player2':
                 return Player('Player2', (10, WIN_HEIGHT / 2.5 + 70)) # Define a posição que o player1 vai iniciar na tela (no meio da tela)
             case 'Enemy1':
-                return  Enemy('Enemy1', (WIN_WIDTH + 10, random.randint(40, WIN_HEIGHT - 100)))
+                enemy = Enemy('Enemy1', (0, 0))
+                x = WIN_WIDTH + 10
+                y = random.randint(0, WIN_HEIGHT - enemy.rect.height)
+                enemy.rect.topleft = (x, y)
+                return enemy
             case 'Enemy2':
-                return Enemy('Enemy2', (WIN_WIDTH + 10, random.randint(40, WIN_HEIGHT - 100)))
+                enemy = Enemy('Enemy2', (0, 0))
+                x = WIN_WIDTH + 10
+                y = random.randint(0, WIN_HEIGHT - enemy.rect.height)
+                enemy.rect.topleft = (x, y)
+                return enemy
 
 

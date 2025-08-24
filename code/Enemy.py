@@ -7,5 +7,3 @@ class Enemy(Entity):
 
     def move(self, ):
         self.rect.centerx -= ENTITY_SPEED[self.name]
-        if self.rect.right <= 0: # Faz com que quando o bloco de imagens chegarem no fim, outro bloco começa
-            self.rect.left = WIN_WIDTH

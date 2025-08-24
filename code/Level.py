@@ -11,6 +11,7 @@ from pygame import Surface, Rect
 from code.Constante import COLOR_WHITE, WIN_HEIGHT, MENU_OPTION, EVENT_ENEMY, SPAWN_TIME
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
+from code.EntityMediator import EntityMediator
 
 
 class Level:
@@ -47,6 +48,8 @@ class Level:
             self.level_text(14, f'FPS:{clock.get_fps() : .0f}', COLOR_WHITE, (10,WIN_HEIGHT - 35)) # Mostra o FPS na tela
             self.level_text(14, f'ENTIDADES: {len(self.entity_list)}', COLOR_WHITE, (10, WIN_HEIGHT - 20)) # Mostra o numero de entidades na tela
             pygame.display.flip()
+            EntityMediator.verify_collision(entity_list=self.entity_list)
+            EntityMediator.verify_health(entity_list=self.entity_list)
         pass
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
