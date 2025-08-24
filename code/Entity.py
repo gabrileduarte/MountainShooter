@@ -5,7 +5,7 @@ import pygame.image
 from code.Constante import ENTITY_HEALTH
 
 
-class Entity(ABC):
+class Entity(ABC): # Nessa classe tem que conter tudo que esta acontecendo no jogo
     def __init__(self, name: str, position: tuple): # Define os atributos das entidades NOME, IMAGEM, VELOCIDADE, VIDA
         self.name = name
         self.surf = pygame.image.load('./asset/' + name + '.png').convert_alpha() # Convert Alpha trata a imagem PNG de uma maneira mais otimizada
