@@ -2,7 +2,7 @@ from pygame.font import Font
 import pygame.image
 from pygame import Surface, Rect
 
-from code.Constante import WIN_WIDTH, COLOR_YELLOW, COLOR_RED, MENU_OPTION, COLOR_WHITE
+from code.Constante import WIN_WIDTH, C_YELLOW, C_RED, MENU_OPTION, C_WHITE
 
 
 class Menu:
@@ -18,9 +18,9 @@ class Menu:
         while True:
             # Desenha as imagens
             self.window.blit(source=self.surf, dest=self.retangulo)  # Desenha a imagem
-            self.menu_text(80, 'BURNING', COLOR_RED, ((WIN_WIDTH / 2), 70), border_size=4)  # Escreve o texto
-            self.menu_text(80, 'DRAGON', COLOR_YELLOW, ((WIN_WIDTH / 2), 150), border_size=4)  # Escreve o texto
-            self.menu_text(15, 'PRESS ENTER TO CONFIRM', COLOR_YELLOW, ((WIN_WIDTH / 2), 650), border_size=2)  # Escreve o texto
+            self.menu_text(80, 'BURNING', C_RED, ((WIN_WIDTH / 2), 70), border_size=4)  # Escreve o texto
+            self.menu_text(80, 'DRAGON', C_YELLOW, ((WIN_WIDTH / 2), 150), border_size=4)  # Escreve o texto
+            self.menu_text(15, 'PRESS ENTER TO CONFIRM', C_YELLOW, ((WIN_WIDTH / 2), 650), border_size=2)  # Escreve o texto
 
             # Controle de piscar (blink) a cada 500ms
             time_now = pygame.time.get_ticks()
@@ -29,9 +29,9 @@ class Menu:
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
                     if blink:
-                        self.menu_text(30, MENU_OPTION[i], COLOR_YELLOW, ((WIN_WIDTH / 2), 400 + 45 * i))  # Escreve o texto # Quando o cursos estiver sobre uma opção ficar de cor diferente
+                        self.menu_text(30, MENU_OPTION[i], C_YELLOW, ((WIN_WIDTH / 2), 400 + 45 * i))  # Escreve o texto # Quando o cursos estiver sobre uma opção ficar de cor diferente
                 else:
-                    self.menu_text(30, MENU_OPTION[i], COLOR_WHITE, ((WIN_WIDTH / 2), 400 + 45 * i))  # Escreve o texto do menu
+                    self.menu_text(30, MENU_OPTION[i], C_WHITE, ((WIN_WIDTH / 2), 400 + 45 * i))  # Escreve o texto do menu
             pygame.display.flip()
 
             # Evento de fechar a janela
