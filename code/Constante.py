@@ -9,6 +9,7 @@ C_BLACK = (0, 0, 0)
 
 # E
 EVENT_ENEMY = pygame.USEREVENT + 1
+EVENT_TIMEOUT = pygame.USEREVENT + 2
 ENTITY_SPEED = {
     'Level1Bg0': 0,
     'Level1Bg1': 3,
@@ -18,6 +19,11 @@ ENTITY_SPEED = {
     'Level1Bg5': 13,
     'Level1Bg6': 15,
     'Level1Bg7': 17,
+    'Level2Bg0': 0,
+    'Level2Bg1': 3,
+    'Level2Bg2': 9,
+    'Level2Bg3': 13,
+    'Level2Bg4': 17,
     'Player1':6,
     'Player1Shot': 10,
     'Player2':6,
@@ -36,6 +42,11 @@ ENTITY_HEALTH = {
     'Level1Bg5': 999,
     'Level1Bg6': 999,
     'Level1Bg7': 999,
+    'Level2Bg0': 999,
+    'Level2Bg1': 999,
+    'Level2Bg2': 999,
+    'Level2Bg3': 999,
+    'Level2Bg4': 999,
     'Player1': 300,
     'Player1Shot': 1,
     'Player2': 300,
@@ -55,6 +66,11 @@ ENTITY_DAMAGE = {
     'Level1Bg5': 0,
     'Level1Bg6': 0,
     'Level1Bg7': 0,
+    'Level2Bg0': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
     'Player1': 1,
     'Player1Shot': 25,
     'Player2': 1,
@@ -79,6 +95,11 @@ ENTITY_SCORE = {
     'Level1Bg5': 0,
     'Level1Bg6': 0,
     'Level1Bg7': 0,
+    'Level2Bg0': 0,
+    'Level2Bg1': 0,
+    'Level2Bg2': 0,
+    'Level2Bg3': 0,
+    'Level2Bg4': 0,
     'Player1': 0,
     'Player1Shot': 0,
     'Player2': 0,
@@ -109,6 +130,10 @@ PLAYER_KEY_SHOOT = {'Player1': pygame.K_RCTRL,
 
 # S
 SPAWN_TIME = 2000
+
+# T
+TIMEOUT_STEP = 100
+TIMEOUT_LEVEl = 10000
 
 # W
 WIN_WIDTH = 1280 # De acordo com a pep usa-se letras maiusculas
