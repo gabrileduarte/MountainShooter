@@ -9,7 +9,7 @@ class Menu:
     def __init__(self, window):
         self.window = window
         self.surf = pygame.image.load('./asset/fundo.png').convert_alpha()  # Carrega a imagem e Defini a imagem de fundo
-        self.retangulo = self.surf.get_rect(left=0, top=0)  # Cria o retangulo iniciando no cando superior esquerdo
+        self.rect = self.surf.get_rect(left=0, top=0)  # Cria o retangulo iniciando no cando superior esquerdo
 
     def run(self, ):
         menu_option = 0 # Inicia o menu na primeira opção
@@ -17,7 +17,7 @@ class Menu:
         pygame.mixer_music.play(-1)
         while True:
             # Desenha as imagens
-            self.window.blit(source=self.surf, dest=self.retangulo)  # Desenha a imagem
+            self.window.blit(source=self.surf, dest=self.rect)  # Desenha a imagem
             self.menu_text(80, 'BURNING', C_RED, ((WIN_WIDTH / 2), 70), border_size=4)  # Escreve o texto
             self.menu_text(80, 'DRAGON', C_YELLOW, ((WIN_WIDTH / 2), 150), border_size=4)  # Escreve o texto
             self.menu_text(15, 'PRESS ENTER TO CONFIRM', C_YELLOW, ((WIN_WIDTH / 2), 650), border_size=2)  # Escreve o texto
